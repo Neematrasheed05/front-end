@@ -23,11 +23,14 @@ function App() {
     }
     console.log(selectedProducts);
   };
+  const removeFromCart = (product) =>{
+    setSelectedProducts(selectedProducts.filter((selectedProduct) => selectedProduct.id!== product.id));
+  }
   return (
     <div>
     <UserContext.Provider value={products}>
       <div>
-      <AddToCart selectedProducts={selectedProducts} />
+      <AddToCart selectedProducts={selectedProducts} removeFromCart={removeFromCart}/>
         <ProductCollection  addToCart={addToCart}/>
       </div>
     </UserContext.Provider>

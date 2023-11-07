@@ -1,12 +1,8 @@
 import React from "react";
 
 
-function AddToCart({selectedProducts}) {
+function AddToCart({selectedProducts , removeFromCart}) {
   
- 
-
-  
-
     return (
         <div className="container">
           <div className="row">
@@ -21,7 +17,9 @@ function AddToCart({selectedProducts}) {
                       {selectedProduct.price}
                       <span>{selectedProduct.price_sign}</span>
                     </p>
-
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" type="button" onClick={() => removeFromCart(selectedProduct)}>Remove from Cart</button>
+                    </div>
                     
                   </div>
                 </div>
