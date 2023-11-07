@@ -1,10 +1,12 @@
 import React, { useState, useEffect, createContext } from "react";
 import ProductCollection from "./ProductCollection";
+import AddToCart from "./AddToCart";
 
 export const UserContext = createContext(); 
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -15,12 +17,22 @@ function App() {
       });
   }, []);
 
+  const addToCart = (product) => {
+    if (!selectedProducts.find((selectedProduct) => selectedProduct.id === product.id)) {
+      setSelectedProducts([...selectedProducts, product]);
+    }
+    console.log(selectedProducts);
+  };
   return (
+    <div>
     <UserContext.Provider value={products}>
       <div>
-        <ProductCollection />
+      <AddToCart selectedProducts={selectedProducts} />
+        <ProductCollection  addToCart={addToCart}/>
       </div>
     </UserContext.Provider>
+    
+    </div>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UserContext } from "./App";
 
-function ProductCollection() {
+function ProductCollection({addToCart}) {
   const products = useContext(UserContext);
 
   return (
@@ -21,6 +21,9 @@ function ProductCollection() {
                 </p>
                 
                 <p className="card-text">{product.description}</p>
+                <button className="btn btn-primary" onClick={() => addToCart(product)}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>
