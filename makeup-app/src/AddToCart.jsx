@@ -21,7 +21,7 @@ function AddToCart({selectedProducts}) {
                       {selectedProduct.price}
                       <span>{selectedProduct.price_sign}</span>
                     </p>
-                    <p className="card-text">{selectedProduct.description}</p>
+
                     
                   </div>
                 </div>
