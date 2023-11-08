@@ -1,10 +1,10 @@
 import React, { useState, useEffect, createContext } from "react";
-import ProductCollection from "./ProductCollection";
 import AddToCart from "./AddToCart";
+import ProductList from "./ProductList";
 
 export const UserContext = createContext(); 
 
-function App() {
+function MainComponent() {
   const [products, setProducts] = useState([]);
   const [selectedProducts, setSelectedProducts] = useState([]);
 
@@ -31,7 +31,7 @@ function App() {
     <UserContext.Provider value={products}>
       <div>
       <AddToCart selectedProducts={selectedProducts} removeFromCart={removeFromCart}/>
-        <ProductCollection  addToCart={addToCart}/>
+      <ProductList  addToCart={addToCart}/>
       </div>
     </UserContext.Provider>
     
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainComponent;

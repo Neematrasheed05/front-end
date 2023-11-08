@@ -26,12 +26,12 @@ function AddToCart({selectedProducts , removeFromCart}) {
               </div>
             ))}
           </div>
-          <div>
+         <div>
             
-          </div>
-        </div>
-      );
-    }
+      </div>
+    </div>
+  );
+ }
     
-    export default AddToCart;
+ export default AddToCart;
     
